@@ -8,6 +8,12 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+<div>
+    <form method="POST">{% csrf_token %}
+        <input type="text" name="r_name" value="Name">
+        <input type="submit" name="add" value="Add">
+    </form>
+</div>
 <table class="table">
     <thead>
     <tr>
@@ -24,19 +30,19 @@
         <td>{{ room.1 }}</td>
         <td>{{ room.2 }}</td>
         <td>
-            <input type="image" name="view" src="../static/eye.svg" alt="view">
-            <input type="image" name="edit" src="../static/note.svg/" alt="edit">
-            <input type="image" name="delete" src="../static/trash.svg/" alt="delete">
+            <form method="POST">{% csrf_token %}
+                <input type="image" name="view" src="../static/eye.svg" alt="view">
+            </form>
+            <form method="POST">{% csrf_token %}
+                <input type="image" name="edit" src="../static/note.svg/" alt="edit">
+            </form>
+            <form method="POST">{% csrf_token %}
+                <input type="image" name="delete" src="../static/trash.svg/" alt="delete">
+            </form>
         </td>
     </tr>
     {% endfor %}
     </tbody>
 </table>
-<div>
-    <form method="POST">
-        <input type="text" name="r_name" value="Name">
-        <input type="submit" name="add" value="Add">
-    </form>
-</div>
 </body>
 </html>
