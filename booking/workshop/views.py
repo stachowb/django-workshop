@@ -12,7 +12,7 @@ class FrontPage(View):
         ctx = {'rooms': []}
         for room in rooms:
             ctx['rooms'].append([room.id, room.name, room.available])
-        return render(request, 'front_page.html', ctx)
+        return render(request, 'front_page1.html', ctx)
 
     def post(self, request):
         response = HttpResponse()
