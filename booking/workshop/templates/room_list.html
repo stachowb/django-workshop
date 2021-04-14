@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
-<body>
-<div>
-    <form method="POST">{% csrf_token %}
-        <input type="text" name="r_name" value="Name">
-        <input type="submit" name="add" value="Add">
-    </form>
-</div>
+{% extends "base.html" %}
+{% block title %}RoomApp - Room List{% endblock %}
+
+{% block content %}
 <table class="table">
     <thead>
     <tr>
@@ -30,13 +18,13 @@
         <td>{{ room.1 }}</td>
         <td>{{ room.2 }}</td>
         <td>
-            <form action="/delete/{{ room.0 }}/"method="GET">
+            <form action="delete/{{ room.0 }}/"method="GET">
                 <input type="image" name="id" value="{{ room.0 }}" src="../static/delete.svg" alt="delete">
             </form>
-            <form action="/edit/{{ room.0 }}/"method="GET">
+            <form action="edit/{{ room.0 }}/"method="GET">
                 <input type="image" name="id" value="{{ room.0 }}" src="../static/edit.svg" alt="edit">
             </form>
-            <form action="/view/{{ room.0 }}/"method="GET">
+            <form action="view/{{ room.0 }}/"method="GET">
                 <input type="image" name="id" value="{{ room.0 }}" src="../static/view.svg" alt="view">
             </form>
         </td>
@@ -44,5 +32,4 @@
     {% endfor %}
     </tbody>
 </table>
-</body>
-</html>
+{% endblock %}

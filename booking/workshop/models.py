@@ -10,5 +10,6 @@ class Room(models.Model):
 class Reservations(models.Model):
     reserved_from = models.DateTimeField()
     reserved_until = models.DateTimeField()
+    room = models.ForeignKey(Room, on_delete=models.CASCADE, default=None)
 
 
