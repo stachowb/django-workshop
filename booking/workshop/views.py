@@ -32,12 +32,6 @@ class FrontPage(View):
 
             return redirect(self)
 
-        if edit := request.POST.get('edit'):
-            pass
-
-        if view := request.POST.get('view'):
-            pass
-
     def get_absolute_url(self):
         return self.URL
 
@@ -72,4 +66,6 @@ class EditRoom(View):
             return redirect("home")
 
 class ViewRoom(View):
-    pass
+    def get(self, request, room_id):
+        room = Room.objects.get(id=room_id)
+        return render(request, "view.html", {"room": room})
