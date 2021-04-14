@@ -14,19 +14,22 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="room-list">Room List</a>
+                    <a class="nav-link" href="calendar">Calendar</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button">Manage Rooms</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="/rooms/list">Rooms List</a>
+                          <a class="dropdown-item" href="rooms/add">Add Room</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/add-room">Manage Rooms</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/add-reservation">Manage Reservations</a>
+                    <a class="nav-link" href="/reservations">Manage Reservations</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="/add-items">Manage Equipment</a>
                 </li>
             </ul>
-            <a class="btn btn-light" href="https://github.com/stachowb/django-workshop" align="right">
+            <a class="btn btn-light" href="https://github.com/stachowb/django-workshop" align="right" target="_blank">
                 <img src="../static/github.svg" alt="Repository">
                 GitHub
             </a>

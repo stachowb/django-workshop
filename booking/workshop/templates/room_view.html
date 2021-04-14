@@ -16,10 +16,10 @@
     <td>{{ room.name }}</td>
     <td>{{ room.available }}</td>
     <td>
-      <form action="/edit/{{ room.id }}/" method="GET">
+      <form action="rooms/edit/{{ room.id }}/" method="GET">
           <input type="image" name="id" value="{{ room.0 }}" src="../static/edit.svg" alt="edit">
       </form>
-      <form action="/delete/{{ room.id }}/" method="GET">
+      <form action="rooms/delete/{{ room.id }}/" method="GET">
           <input type="image" name="id" value="{{ room.0 }}" src="../static/delete.svg" alt="delete">
       </form>
     </td>

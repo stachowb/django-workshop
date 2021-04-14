@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}RoomApp - Room List{% endblock %}
+{% block title %}RoomApp - Reservations{% endblock %}
 
 {% block content %}
 <table class="table">
@@ -7,24 +7,26 @@
     <tr>
         <th scope="col">#</th>
         <th scope="col">Room Name</th>
-        <th scope="col">Available</th>
+        <th scope="col">Reserved From</th>
+        <th scope="col">Reserved Until</th>
         <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
-    {% for room in rooms %}
+    {% for res in resevs %}
     <tr>
-        <th scope="row">{{ room.0 }}</th>
-        <td>{{ room.1 }}</td>
-        <td>{{ room.2 }}</td>
+        <th scope="row">{{ r.0 }}</th>
+        <td>{{ r.1 }}</td>
+        <td>{{ r.2 }}</td>
+        <td>{{ r.3 }}</td>
         <td>
-            <form action="rooms/delete/{{ room.0 }}/"method="GET">
+            <form action="/delete/{{ room.0 }}/" method="GET">
                 <input type="image" name="id" value="{{ room.0 }}" src="../static/delete.svg" alt="delete">
             </form>
-            <form action="rooms/edit/{{ room.0 }}/"method="GET">
+            <form action="/edit/{{ room.0 }}/" method="GET">
                 <input type="image" name="id" value="{{ room.0 }}" src="../static/edit.svg" alt="edit">
             </form>
-            <form action="rooms/view/{{ room.0 }}/"method="GET">
+            <form action="/view/{{ room.0 }}/" method="GET">
                 <input type="image" name="id" value="{{ room.0 }}" src="../static/view.svg" alt="view">
             </form>
         </td>
@@ -32,4 +34,5 @@
     {% endfor %}
     </tbody>
 </table>
+
 {% endblock %}
