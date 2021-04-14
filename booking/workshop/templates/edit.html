@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method ="POST">{% csrf_token %}
+    <br>Name: <input type="text" name="name" value="{{ room.name }}">
+    <br>Available: <select name="available" value="Available">
+        <option value="True">Yes</option>
+        <option value="False">No</option>
+    </select>
+    <br><input type="submit" name="save" value="Save">
+        <input type="submit" name="back" value="Go back">
+</form>
+</body>
+</html>

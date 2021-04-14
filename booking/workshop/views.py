@@ -54,3 +54,22 @@ class DeleteRoom(View):
             return redirect("home")
         if request.POST.get("deny"):
             return redirect("home")
+
+
+class EditRoom(View):
+    def get(self, request, room_id):
+        room = Room.objects.get(id=room_id)
+        return render(request, 'edit.html', {"room": room})
+
+    def post(self, request, room_id):
+        room = Room.objects.get(id=room_id)
+        if request.POST.get('save'):
+            room.name = request.POST.get('name')
+            room.available = request.POST.get('available')
+            room.save()
+            return redirect("home")
+        if request.POST.get('back'):
+            return redirect("home")
+
+class ViewRoom(View):
+    pass

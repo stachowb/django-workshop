@@ -31,8 +31,13 @@
         <td>{{ room.2 }}</td>
         <td>
             <form action="/delete/{{ room.0 }}/"method="GET">
-                {{ room.0 }}
                 <input type="image" name="id" value="{{ room.0 }}" src="../static/delete.svg" alt="view">
+            </form>
+            <form action="/edit/{{ room.0 }}/"method="GET">
+                <input type="image" name="id" value="{{ room.0 }}" src="../static/edit.svg" alt="view">
+            </form>
+            <form action="/view/{{ room.0 }}/"method="GET">
+                <input type="image" name="id" value="{{ room.0 }}" src="../static/view.svg" alt="view">
             </form>
         </td>
     </tr>
