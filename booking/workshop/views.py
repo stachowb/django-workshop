@@ -9,7 +9,7 @@ from django.contrib import messages
 class FrontPage(View):
 
     URL = "http://127.0.0.1:8000/"
-    template = 'front_page1.html'
+    template = 'room_list.html'
 
     def get(self, request):
         rooms = Room.objects.all()
