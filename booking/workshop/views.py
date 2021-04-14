@@ -48,6 +48,9 @@ class DeleteRoom(View):
         return render(request, "delete.html")
 
     def post(self, request, room_id):
-        room = Room.objects.get(id=room_id)
-        room.delete()
-        return redirect("home")
+        if request.POST.get('confirm'):
+            room = Room.objects.get(id=room_id)
+            room.delete()
+            return redirect("home")
+        if request.POST.get("deny"):
+            return redirect("home")
