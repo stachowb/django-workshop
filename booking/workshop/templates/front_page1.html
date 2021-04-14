@@ -30,14 +30,9 @@
         <td>{{ room.1 }}</td>
         <td>{{ room.2 }}</td>
         <td>
-            <form action="/delete/?id={{ room.0 }}" method="POST">{% csrf_token %}
-                <input type="image" name="delete" value="{{ room.0 }}" src="../static/delete.svg" alt="view">
-            </form>
-            <form method="POST">{% csrf_token %}
-                <input type="image" name="edit" value="{{ room.0 }}" src="../static/edit.svg/" alt="edit">
-            </form>
-            <form method="POST">{% csrf_token %}
-                <input type="image" name="delete" value="{{ room.0 }}" src="../static/delete.svg/" alt="delete">
+            <form action="/delete/{{ room.0 }}/"method="GET">
+                {{ room.0 }}
+                <input type="image" name="id" value="{{ room.0 }}" src="../static/delete.svg" alt="view">
             </form>
         </td>
     </tr>
