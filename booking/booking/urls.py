@@ -8,6 +8,6 @@ from django.views.decorators.csrf import csrf_exempt
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', FrontPage.as_view()),
-    path('<pk>/delete/', DeleteRoom.as_view()),
+    path('delete/', DeleteRoom.as_view(), name='delete'),
 
 ]

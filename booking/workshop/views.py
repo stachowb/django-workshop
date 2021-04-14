@@ -33,7 +33,7 @@ class FrontPage(View):
             return redirect(self)
 
         if delete := request.POST.get('delete'):
-            return redirect(DeleteRoom)
+            return redirect('delete')
 
         if edit := request.POST.get('edit'):
             pass
@@ -45,15 +45,10 @@ class FrontPage(View):
         return self.URL
 
 
-class DeleteRoom(DeleteView):
-    model = Room
-    template_name = "delete.html"
-    success_url = ""
+class DeleteRoom(View):
 
-    def delete(self, request, *args, **kwargs):
-        room = Room.objects.get(id=1)
+    def get(self, request):
+        room_id = request.GET.get('id')
+        room = Room.objects.get(id=room_id)
         room.delete()
-        return super(DeleteRoom, self).delete(request, *args, **kwargs)
-
-    def get_absolute_url(self):
-        return self.success_url
+        return HttpResponse('USunieto')

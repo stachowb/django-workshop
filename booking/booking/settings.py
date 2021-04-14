@@ -79,7 +79,7 @@ DATABASES = {
         'NAME': 'booking',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'USER': 'postgres',
-        'PASSWORD': 'bartek93',
+        'PASSWORD': 'coderslab',
         'HOST': 'localhost',
     }
 }
