@@ -16,11 +16,8 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="calendar">Calendar</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button">Manage Rooms</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/rooms/list">Rooms List</a>
-                          <a class="dropdown-item" href="rooms/add">Add Room</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/rooms">Manage Rooms</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="/reservations">Manage Reservations</a>
@@ -37,7 +34,7 @@
     </nav>
 </div>
 <div id="content">
-{% block content %} {% endblock %}
+    {% block content %} {% endblock %}
 </div>
 </body>
 </html>

@@ -5,11 +5,11 @@ from django.views.generic.edit import DeleteView
 from workshop.models import Room, Reservations
 from django.contrib import messages
 
+class Home(View):
+    def get(self, request):
+        return render(request, "base.html")
 
-class FrontPage(View):
-
-    URL = "http://127.0.0.1:8000/"
-
+class ListRoom(View):
     def get(self, request):
         rooms = Room.objects.all()
         ctx = {'rooms': []}
@@ -18,19 +18,8 @@ class FrontPage(View):
         return render(request, "room_list.html", ctx)
 
     def post(self, request):
-        if request.POST.get('add'):
-            name = request.POST.get("r_name")
-            try:
-                room = Room(name=name)
-                room.save()
-                messages.info(request, "Room added successfully!")
-            except:
-                pass
+        pass
 
-            return redirect(self)
-
-    def get_absolute_url(self):
-        return self.URL
 
 
 class DeleteRoom(View):
