@@ -5,21 +5,37 @@ from django.views.generic.edit import DeleteView
 from workshop.models import Room, Reservations
 from django.contrib import messages
 
+
 class Home(View):
     def get(self, request):
         return render(request, "base.html")
+
 
 class ListRoom(View):
     def get(self, request):
         rooms = Room.objects.all()
         ctx = {'rooms': []}
         for room in rooms:
-            ctx['rooms'].append([room.id, room.name, room.available])
+            ctx['rooms'].append([room.id, room.name, room.capacity, room.projector])
         return render(request, "room_list.html", ctx)
 
-    def post(self, request):
-        pass
 
+class RoomAdd(View):
+    def get(self, request):
+        return render(request, "room_add.html")
+
+    def post(self, request):
+        room = Room.objects.create()
+        if name := request.POST.get('name'):
+            room.name = name
+        if capacity := request.POST.get('cap'):
+            room.capacity = int(capacity)
+        if request.POST.get('proj'):
+            room.projector = True
+        if capacity and name:
+            room.save()
+            return redirect("room_list")
+        return redirect("room_add")
 
 
 class DeleteRoom(View):
@@ -31,9 +47,7 @@ class DeleteRoom(View):
         if request.POST.get('confirm'):
             room = Room.objects.get(id=room_id)
             room.delete()
-            return redirect("home")
-        if request.POST.get("deny"):
-            return redirect("home")
+        return redirect("room_list")
 
 
 class EditRoom(View):
@@ -58,13 +72,28 @@ class ViewRoom(View):
         return render(request, "room_view.html", {"room": room})
 
 
-class ManageReservations(View):
+class ListReservation(View):
     def get(self, request):
-        reservations= Reservations.objects.all()
-        ctx = {"resevs": []}
+        reservations = Reservations.objects.all()
+        ctx = {"reservs": []}
         for r in reservations:
-            ctx["resevs"].append([r.id, r.room.name, r.reserved_from, r.reserved_until])
-        return render(request, "reservations.html", ctx)
+            ctx["reservs"].append([r.id, r.room.name, r.reserved_from, r.reserved_until])
+        return render(request, "reservation_list.html", ctx)
+
+
+class AddReservation(View):
+    def get(self, request):
+        ctx = {'rooms': []}
+        rooms = Room.objects.filter(available=True)
+        for room in rooms:
+            ctx['rooms'].append([room.id, room.name])
+        return render(request, "reservation_add.html", ctx)
 
     def post(self, request):
-        pass
+        date_from = request.POST.get('from')
+        date_until = request.POST.get('until')
+        room_id = request.POST.get('room')
+        room = Room.objects.get(id=room_id)
+        res = Reservations.objects.create(reserved_from=date_from, reserved_until=date_until, room=room)
+        return redirect('reservations_list')
+

@@ -1,0 +1,21 @@
+{%  extends "base.html" %}
+
+{% block title %}Reservations - Add Reservation{% endblock %}
+
+{% block content %}
+<form method="POST">{% csrf_token %}
+    <label for="from">Reserve from</label>
+        <input id=from type="datetime-local" name="from">
+    <label for="until">Reserve until</label>
+        <input id="until" type="datetime-local" name="until">
+    <label for="room">Room Name</label>
+        <select name="room" id="room">
+            {% for room in rooms %}
+            <option value="{{ room.0 }}">{{ room.1 }}</option>
+            {% endfor %}
+        </select>
+
+    <input class="btn btn-primary" type="submit" value="Add">
+</form>
+
+{% endblock %}
