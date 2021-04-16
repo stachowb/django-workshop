@@ -61,9 +61,8 @@ class EditRoom(View):
             room.name = request.POST.get('name')
             room.available = request.POST.get('available')
             room.save()
-            return redirect("home")
-        if request.POST.get('back'):
-            return redirect("home")
+        return redirect("home")
+
 
 
 class ViewRoom(View):
