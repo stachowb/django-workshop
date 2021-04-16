@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'workshop',
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -82,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'USER': 'postgres',
         'PASSWORD': 'bartek93',
-        'HOST': 'localhost',
+        'HOST': 'localhost'
     }
 }
 
