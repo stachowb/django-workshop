@@ -77,14 +77,14 @@ WSGI_APPLICATION = 'booking.wsgi.application'
 
 DATABASES = {
     'default': {
-        'NAME': 'booking',
+        'NAME': 'df4p3ppe65ds9a',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'USER': 'postgres',
-        'PASSWORD': 'coderslab',
-        'HOST': 'localhost',
+        'USER': 'dphtszffgsqsel',
+        'PASSWORD': 'a64fa6c2a07fdbf8399cdf9763f8a53775b886ba254c492da3c0c4ba373fd340',
+        'HOST': 'ec2-54-247-158-179.eu-west-1.compute.amazonaws.com',
+        "POST": 5432
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
