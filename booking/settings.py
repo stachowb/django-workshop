@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-g@)uf-ub5bowl+v-+90qrimh12^yn0r0sfo@-_b4@@h&$3s5#)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["workshop-booking.herokuapp.com", "127.0.0.1"]
 
@@ -78,12 +78,11 @@ WSGI_APPLICATION = 'booking.wsgi.application'
 
 DATABASES = {
     'default': {
-        'NAME': 'df4p3ppe65ds9a',
+        'NAME': 'booking',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'USER': 'dphtszffgsqsel',
-        'PASSWORD': 'a64fa6c2a07fdbf8399cdf9763f8a53775b886ba254c492da3c0c4ba373fd340',
-        'HOST': 'ec2-54-247-158-179.eu-west-1.compute.amazonaws.com',
-        "POST": 5432
+        'USER': 'postgres',
+        'PASSWORD': 'bartek93',
+        'HOST': 'localhost',
     }
 }
 
