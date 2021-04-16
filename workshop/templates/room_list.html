@@ -2,38 +2,38 @@
 {% load static %}
 
 {% block content %}
-    <a class="btn btn-success" href="add/" role="button">Add Room</a>
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Room Name</th>
-            <th scope="col">Capacity</th>
-            <th scope="col">Projector included?</th>
-            <th scope="col">Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for room in rooms %}
-        <tr>
-            <th scope="row">{{ room.0 }}</th>
-            <td>{{ room.1 }}</td>
-            <td>{{ room.2 }}</td>
-            <td>{% if room.3 is True %}Yes{% else %}No{% endif %}</td>
-            <td>
-                <form action="delete/{{ room.0 }}/" method="GET">
-                    <input type="image" name="id" value="{{ room.0 }}" src="{% static "images/delete.svg" %}"
-                           alt="delete">
-                </form>
-                <form action="edit/{{ room.0 }}/" method="GET">
-                    <input type="image" name="id" value="{{ room.0 }}" src="{% static "images/edit.svg" %}" alt="edit">
-                </form>
-                <form action="view/{{ room.0 }}/" method="GET">
-                    <input type="image" name="id" value="{{ room.0 }}" src="{% static "images/view.svg" %}" alt="view">
-                </form>
-            </td>
-        </tr>
-
-        </tbody>
-    </table>
+{#    <a class="btn btn-success" href="add/" role="button">Add Room</a>#}
+{#    <table class="table">#}
+{#        <thead>#}
+{#        <tr>#}
+{#            <th scope="col">#</th>#}
+{#            <th scope="col">Room Name</th>#}
+{#            <th scope="col">Capacity</th>#}
+{#            <th scope="col">Projector included?</th>#}
+{#            <th scope="col">Action</th>#}
+{#        </tr>#}
+{#        </thead>#}
+{#        <tbody>#}
+{#        {% for room in rooms %}#}
+{#        <tr>#}
+{#            <th scope="row">{{ room.0 }}</th>#}
+{#            <td>{{ room.1 }}</td>#}
+{#            <td>{{ room.2 }}</td>#}
+{#            <td>{% if room.3 is True %}Yes{% else %}No{% endif %}</td>#}
+{#            <td>#}
+{#                <form action="delete/{{ room.0 }}/" method="GET">#}
+{#                    <input type="image" name="id" value="{{ room.0 }}" src="{% static "images/delete.svg" %}" alt="delete">#}
+{#                </form>#}
+{#                <form action="edit/{{ room.0 }}/" method="GET">#}
+{#                    <input type="image" name="id" value="{{ room.0 }}" src="{% static "images/edit.svg" %}" alt="edit">#}
+{#                </form>#}
+{#                <form action="view/{{ room.0 }}/" method="GET">#}
+{#                    <input type="image" name="id" value="{{ room.0 }}" src="{% static "images/view.svg" %}" alt="view">#}
+{#                </form>#}
+{#            </td>#}
+{#        </tr>#}
+{##}
+{#        </tbody>#}
+{#    </table>#}
+    test widoku
 {% endblock %}
