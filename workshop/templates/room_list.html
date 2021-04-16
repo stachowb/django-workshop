@@ -16,18 +16,18 @@
         <tbody>
         {% for room in rooms %}
         <tr>
-            <th scope="row">{{ room.0 }}</th>
-            <td>{{ room.1 }}</td>
-            <td>{{ room.2 }}</td>
-            <td>{% if room.3 is True %}Yes{% else %}No{% endif %}</td>
+            <th scope="row">{{ room.id }}</th>
+            <td>{{ room.name }}</td>
+            <td>{{ room.capacity }}</td>
+            <td>{% if room.capacity is True %}Yes{% else %}No{% endif %}</td>
             <td>
-                <form action="delete/{{ room.0 }}/" method="GET">
+                <form action="delete/{{ room.id }}/" method="GET">
                     <input type="image" name="id" value="{{ room.0 }}" src="{% static "images/delete.svg" %}" alt="delete">
                 </form>
-                <form action="edit/{{ room.0 }}/" method="GET">
+                <form action="edit/{{ room.id }}/" method="GET">
                     <input type="image" name="id" value="{{ room.0 }}" src="{% static "images/edit.svg" %}" alt="edit">
                 </form>
-                <form action="view/{{ room.0 }}/" method="GET">
+                <form action="view/{{ room.id }}/" method="GET">
                     <input type="image" name="id" value="{{ room.0 }}" src="{% static "images/view.svg" %}" alt="view">
                 </form>
             </td>

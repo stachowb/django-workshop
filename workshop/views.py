@@ -14,10 +14,7 @@ class Home(View):
 class ListRoom(View):
     def get(self, request):
         rooms = Room.objects.all()
-        ctx = {'rooms': []}
-        for room in rooms:
-            ctx['rooms'].append([room.id, room.name, room.capacity, room.projector])
-        return render(request, "room_add.html", ctx)
+        return render(request, "list_room.html", {'rooms': rooms})
 
 
 class RoomAdd(View):
