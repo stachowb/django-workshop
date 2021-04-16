@@ -1,5 +1,16 @@
-{% extends "base.html" %}
-{% block title %}RoomApp - Room List{% endblock %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+
+    <title>{% block title %}RoomApp{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
 
 {% block content %}
     <a class="btn btn-success" href="add/" role="button">Add Room</a>
@@ -35,4 +46,5 @@
         {% endfor %}
         </tbody>
     </table>
-{% endblock %}
+</body>
+</html>
