@@ -1,23 +1,33 @@
 from django.shortcuts import render, redirect
 from django.http import Http404, HttpResponse
 from django.views import View
-from django.views.generic.edit import DeleteView
+from django.views.generic.list import ListView
 from workshop.models import Room, Reservations
 from django.contrib import messages
+from django.utils import timezone
 
 
 class Home(View):
     def get(self, request):
         return render(request, "base.html")
 
+# class RoomList(ListView):
+#     model = Room
+#     paginate_by = 10
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['now'] = timezone.now()
+#         return context
+#
+#     def get(self, request):
+#         return render(request, 'listroom.html', self.get_context_data())
+
 
 class ListRoom(View):
     def get(self, request):
         rooms = Room.objects.all()
-        ctx = {'rooms': []}
-        for room in rooms:
-            ctx['rooms'].append([room.id, room.name, room.capacity, room.projector])
-        return render(request, "room_list.html", ctx)
+        return render(request, "list.html", {'rooms': rooms})
 
 
 class RoomAdd(View):
@@ -61,9 +71,8 @@ class EditRoom(View):
             room.name = request.POST.get('name')
             room.available = request.POST.get('available')
             room.save()
-            return redirect("home")
-        if request.POST.get('back'):
-            return redirect("home")
+        return redirect("room_list")
+
 
 
 class ViewRoom(View):

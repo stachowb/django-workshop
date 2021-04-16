@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Bartek test
+<table>
+    {% for room in rooms %}
+    <tr>
+        <p>{{ room.0 }}</p>
+        <p>{{ room.1 }}</p>
+        <p>{{ room.2 }}</p>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
