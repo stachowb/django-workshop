@@ -129,7 +129,7 @@ STATICFILES_DIRS = [
    BASE_DIR / "workshop/static"
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -137,5 +137,5 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Configure Django App for Heroku.
-import django_on_heroku
-django_on_heroku.settings(config=locals(), staticfiles=True, logging=False)
+# import django_on_heroku
+# django_on_heroku.settings(config=locals(), staticfiles=True, logging=False)
