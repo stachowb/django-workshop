@@ -17,22 +17,16 @@ class ListRoom(View):
         return render(request, "room_list.html", {'rooms': rooms})
 
 
-
 class RoomAdd(View):
     def get(self, request):
         return render(request, "room_add.html")
 
     def post(self, request):
-        room = Room.objects.create()
-        if name := request.POST.get('name'):
-            room.name = name
-        if capacity := request.POST.get('cap'):
-            room.capacity = int(capacity)
-        if request.POST.get('proj'):
-            room.projector = True
-        if capacity and name:
-            room.save()
-            return redirect("room_list")
+        name = request.POST.get('name')
+        capacity = request.POST.get('cap')
+        if Room.objects.get('proj'):
+            proj = True
+        Room.objects.create(name=name, capacity=capacity, projector=proj if proj is True else False)
         return redirect("room_add")
 
 
