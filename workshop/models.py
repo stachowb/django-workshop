@@ -4,7 +4,6 @@ from django.db import models
 class Room(models.Model):
     name = models.CharField(max_length=64)
     capacity = models.IntegerField(default=0)
-    available = models.BooleanField(default=True)
     projector = models.BooleanField(default=False)
 
 
