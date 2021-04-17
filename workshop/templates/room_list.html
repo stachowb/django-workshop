@@ -16,9 +16,9 @@
         <tbody>
         {% for room in rooms %}
         <tr>
-            <th scope="row">{{ room.id }}</th>
-            <td>{{ room.name }}</td>
-            <td>{{ room.capacity }}</td>
+            <td>{{ room.id }}</td>
+            <td></td>
+            <td></td>
             <td>
                 <form action="delete/{{ room.id }}/" method="GET">
                     <input type="image" name="id" value="{{ room.0 }}" src="{% static "images/delete.svg" %}" alt="delete">
