@@ -19,7 +19,6 @@
             <th scope="row">{{ room.id }}</th>
             <td>{{ room.name }}</td>
             <td>{{ room.capacity }}</td>
-            <td>{% if room.capacity is True %}Yes{% else %}No{% endif %}</td>
             <td>
                 <form action="delete/{{ room.id }}/" method="GET">
                     <input type="image" name="id" value="{{ room.0 }}" src="{% static "images/delete.svg" %}" alt="delete">
