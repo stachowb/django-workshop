@@ -11,12 +11,6 @@ class Home(View):
         return render(request, "base.html")
 
 
-class ListRoom(View):
-    def get(self, request):
-        rooms = Room.objects.all()
-        return render(request, "list_room.html", {'rooms': rooms})
-
-
 class RoomAdd(View):
     def get(self, request):
         return render(request, "room_add.html")
