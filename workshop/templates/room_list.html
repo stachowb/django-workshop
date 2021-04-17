@@ -21,13 +21,13 @@
             <td></td>
             <td>
                 <form action="delete/{{ room.id }}/" method="GET">
-                    <input type="image" name="id" value="{{ room.0 }}" src="{% static "images/delete.svg" %}" alt="delete">
+                    <input type="image" name="id" value="{{ room.id }}" src="{% static "images/delete.svg" %}" alt="delete">
                 </form>
                 <form action="edit/{{ room.id }}/" method="GET">
-                    <input type="image" name="id" value="{{ room.0 }}" src="{% static "images/edit.svg" %}" alt="edit">
+                    <input type="image" name="id" value="{{ room.id }}" src="{% static "images/edit.svg" %}" alt="edit">
                 </form>
                 <form action="view/{{ room.id }}/" method="GET">
-                    <input type="image" name="id" value="{{ room.0 }}" src="{% static "images/view.svg" %}" alt="view">
+                    <input type="image" name="id" value="{{ room.id }}" src="{% static "images/view.svg" %}" alt="view">
                 </form>
             </td>
         </tr>
