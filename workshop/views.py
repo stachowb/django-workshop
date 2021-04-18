@@ -22,11 +22,12 @@ class RoomAdd(View):
         return render(request, "room_add.html")
 
     def post(self, request):
+        proj = False
         name = request.POST.get('name')
         capacity = request.POST.get('cap')
         if Room.objects.get('proj'):
             proj = True
-        Room.objects.create(name=name, capacity=capacity, projector=proj if proj is True else False)
+        Room.objects.create(name=name, capacity=capacity, projector=proj)
         return redirect("room_add")
 
 
